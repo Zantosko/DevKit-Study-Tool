@@ -12,7 +12,6 @@ const flash = require("express-flash");
 const session = require("express-session");
 const { User, Note, Card } = require("./models");
 const mustacheExpress = require("mustache-express");
-const featureRoutes = require("./routes/features");
 
 const PORT = 3033;
 const VIEWS_PATH = path.join(__dirname, "../views");
@@ -64,11 +63,13 @@ app.get("/", (req, res) => {
 		res.render("home-page", {
 			button: "Logout",
 			route: "/logout",
+      type: "hidden"
 		});
 	} else {
 		res.render("home-page", {
 			button: "Login",
 			route: "/login",
+      type: "submit"
 		});
 	}
 });
