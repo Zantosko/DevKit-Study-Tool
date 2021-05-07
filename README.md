@@ -1,4 +1,4 @@
-# <DevKit/>
+# DevKit
 
 ## Description
 
