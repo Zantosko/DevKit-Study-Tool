@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/notes-page.css">
+  <title>DevKit HomePage</title>
+</head>
+
+<body>
+  <div class="navbar-container">
+    <nav class="navbar navbar-expand navbar-dark" aria-label="Second navbar example">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">DevKit</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarsExample02">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/note">Create Note</a>
+            </ul>
+          </div>
+        </div>
+        <div class="login-container">
+          <button class="login-button" type="submit"><a href="/logout">Logout</a></button>
+        </div>
+      </nav>
+      <div class="main-container">
+        <div class="card">
+          <h1 class="m-3">Add Your Notes</h1>
+          <form action="/note" method="POST">
+            <input type="text" name="Title" class="note-input" placeholder="Note Title..." required>
+            <textarea name="Text" id="" cols="30" rows="10" class="note-description" placeholder="Note Description..." required></textarea>
+            <input type="hidden" name="UserId" value="{{userid}}">
+            <div class="button-container d-flex justify-content-center">
+              <button type="submit" class="note-button">Create</button>
+            </div>
+          </form>
+          <form action="/view_notes" method="GET">
+            <div class="button-container">
+              <button type="submit" class="note-button">View Notes</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="container d-flex flex-column align-items-center">
+        {{#Notes}}
+          <div class="note-wrapper">
+            <div class="note-card">
+              <div class="note">
+                <ul class="note-ul">
+                  <h1 class="note-heading">{{Title}}</h1>
+                  <br>
+                  <input type="hidden" name="">
+                  <button class="note-btn"><a href="/read_note/{{id}}"><i class="fas fa-book-reader"></i> Read Note</a></button>
+                  <br>
+                  <button class="note-btn"><a href="/edit_note/{{id}}"><i class="fas fa-pencil-alt"></i> Edit Note</a></button>
+                  <br>
+                  <form action="/delete_note/{{id}}" method="POST">
+                    <button type="submit" class="note-btn delete-button"><a><i class="fas fa-trash-alt"></i> Delete Note</a></button>
+                  </form>
+                </ul>
+              </div>
+            </div>
+          </div>
+        {{/Notes}}
+      </div>
+  
+      
+      <script src="https://kit.fontawesome.com/475ca97fa3.js" crossorigin="anonymous"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
+      integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js"
+      integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous">
+    </script>
+
+    <script src="/js/notes-page.js"></script>
+
+</body>
+
+</html>
