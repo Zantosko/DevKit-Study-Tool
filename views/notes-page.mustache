@@ -35,18 +35,14 @@
       </nav>
       <div class="main-container">
         <div class="card">
-          <h1 class="m-3">Add Your Notes</h1>
+          <h1 class="m-3 card-heading">Add Your Notes</h1>
           <form action="/note" method="POST">
             <input type="text" name="Title" class="note-input" placeholder="Note Title..." required>
             <textarea name="Text" id="" cols="30" rows="10" class="note-description" placeholder="Note Description..." required></textarea>
             <input type="hidden" name="UserId" value="{{userid}}">
             <div class="button-container d-flex justify-content-center">
               <button type="submit" class="note-button">Create</button>
-            </div>
-          </form>
-          <form action="/view_notes" method="GET">
-            <div class="button-container">
-              <button type="submit" class="note-button">View Notes</button>
+              <button class="note-button"><a class="view-link" href="/view_notes">View Notes</a></button>
             </div>
           </form>
         </div>
@@ -58,15 +54,15 @@
             <div class="note-card">
               <div class="note">
                 <ul class="note-ul">
-                  <h1 class="note-heading">{{Title}}</h1>
+                  <h1 class="note-heading"><b>{{Title}}</b></h1>
                   <br>
                   <input type="hidden" name="">
-                  <button class="note-btn"><a href="/read_note/{{id}}"><i class="fas fa-book-reader"></i> Read Note</a></button>
+                  <button class="note-btn"><a class="note-btn-link" href="/read_note/{{id}}"><i class="fas fa-book-reader"></i> Read Note</a></button>
                   <br>
-                  <button class="note-btn"><a href="/edit_note/{{id}}"><i class="fas fa-pencil-alt"></i> Edit Note</a></button>
+                  <button class="note-btn"><a class="note-btn-link" href="/edit_note/{{id}}"><i class="fas fa-pencil-alt"></i> Edit Note</a></button>
                   <br>
                   <form action="/delete_note/{{id}}" method="POST">
-                    <button type="submit" class="note-btn delete-button"><a><i class="fas fa-trash-alt"></i> Delete Note</a></button>
+                    <button type="submit" class="note-btn delete-button"><a class="note-btn-link"><i class="fas fa-trash-alt"></i> Delete Note</a></button>
                   </form>
                 </ul>
               </div>

@@ -213,6 +213,7 @@ app.put("/card/:id", checkAuthenticated, async (req,res) => {
 })
 
 
+
 app.post("/card/:id", checkAuthenticated, async (req, res) => {
 	const { Question, Answer, NoteId } = req.body;
 	const newCard = await Card.create({

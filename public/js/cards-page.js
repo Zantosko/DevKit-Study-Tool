@@ -46,40 +46,16 @@ const getCardInfo = async () => {
 }
 
 function scrollThroughCards(idx, data) {
-  // prevBtn.addEventListener("click", (e) => {
-  //   flashCard.style.display = "none"
-
-  //   setTimeout(() => {
-  //     frontOfCard.innerHTML = data[idx--].Answer
-  //     backOfCard.innerHTML = data[idx--].Question
-  //     flashCard.style.display = "block"
-  //   }, 1000)
-
-  //   e.preventDefault()
-  // })
-
-  // nextBtn.addEventListener("click", (e) => {
-  //   flashCard.style.display = "none"
-
-  //   setTimeout(() => {
-  //     frontOfCard.innerHTML = data[idx++].Answer
-  //     backOfCard.innerHTML = data[idx++].Question
-  //     flashCard.style.display = "block"
-  //   }, 1000)
-
-  //   e.preventDefault()
-  // })
-
   prevBtn.addEventListener("click", (e) => {
-    // there's no more card on the left of index 0
-    // so exit the function early
+    // there's no more cards on the left of index 0
+    // Exits the function early
     if (idx <= 0) return;
 
     flashCard.style.display = "none"
 
     setTimeout(() => {
-      idx--; // decrease the index first
-      // then use the modified index
+      idx--; // Decreases the index
+      // Then uses the modified index
       backOfCard.innerHTML = data[idx].Answer
       frontOfCard.innerHTML = data[idx].Question
       flashCard.style.display = "block"
@@ -89,15 +65,15 @@ function scrollThroughCards(idx, data) {
   })
 
   nextBtn.addEventListener("click", (e) => {
-    // there's no more cards beyond the end of the list
-    // so exit the function early
+    // There's no more cards beyond the end of the list
+    // So exit the function early
     if (idx >= data.length - 1) return;
 
     flashCard.style.display = "none"
 
     setTimeout(() => {
-      idx++; // increase the index first
-      // then use the modified index next
+      idx++; // Increases the index 
+      // Then use the modified index next
       backOfCard.innerHTML = data[idx].Answer
       frontOfCard.innerHTML = data[idx].Question
       flashCard.style.display = "block"

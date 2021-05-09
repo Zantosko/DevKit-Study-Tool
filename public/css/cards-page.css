@@ -171,3 +171,16 @@ input:focus {
 	background-color: black;
 	color: white;
 }
+
+@media (max-width: 720px) {
+	.title {
+		text-align: center;
+		font-size: 2.5rem;
+	}
+}
+
+@media (min-width: 1024px) {
+	.title {
+		font-size: 4rem;
+	}
+}
