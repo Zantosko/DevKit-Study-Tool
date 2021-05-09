@@ -12,6 +12,7 @@ const flash = require("express-flash");
 const session = require("express-session");
 const { User, Note, Card } = require("./models");
 const mustacheExpress = require("mustache-express");
+const { response } = require("express");
 
 const PORT = 3033;
 const VIEWS_PATH = path.join(__dirname, "../views");
@@ -153,7 +154,7 @@ app.get("/read_note/:id", async (req,res) => {
   });
 
 
-  res.render("read-note", {Notes: data});
+  res.render("read-note", { Notes: data });
 });
 
 app.get("/edit_note/:id", async (req,res) => {
@@ -164,7 +165,7 @@ app.get("/edit_note/:id", async (req,res) => {
     }
   });
 
-  res.render("edit-note", {Notes: data})
+  res.render("edit-note", { Notes: data })
 })
 
 app.post("/edit_note/:id", async (req,res) => {
@@ -191,11 +192,26 @@ app.post("/delete_note/:id", async (req,res) => {
   res.redirect("/note")
 })
 
-app.get("/card/:id", checkAuthenticated, (req, res) => {
+app.get("/card/:id", checkAuthenticated, async (req,res) => {
+  const { id } = req.params
 
-	res.render("flash-cards-page");
-  
+  const data = await Card.findAll({ where: { NoteId: id } });
+
+
+  res.render("cards-page", { 
+    noteid: id,
+    Cards: data
+  })
 });
+
+app.put("/card/:id", checkAuthenticated, async (req,res) => {
+  const { id } = req.params
+
+  const data = await Card.findAll({ where: { NoteId: id } });
+
+  res.json(data)
+})
+
 
 app.post("/card/:id", checkAuthenticated, async (req, res) => {
 	const { Question, Answer, NoteId } = req.body;

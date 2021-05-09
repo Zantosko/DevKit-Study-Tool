@@ -11,6 +11,12 @@ button {
 	border-radius: 4px;
 	background-color: #b1d4e0;
 	text-decoration: none;
+	transition: all 0.3s ease;
+}
+
+.dyn-btn:hover {
+	background-color: black;
+	color: white;
 }
 
 h5 {
@@ -21,9 +27,21 @@ h5 {
 	font-size: 2.5rem;
 }
 
+.login-button {
+	transition: all 0.3s ease;
+}
+
+.login-button:hover {
+	background-color: black;
+}
+
 .log-btn {
 	text-decoration: none;
 	color: black;
+}
+
+.log-btn:hover {
+	color: white;
 }
 
 .nav-link1 {
@@ -156,20 +174,7 @@ h5 {
 .copyright-text {
 	margin: 0;
 }
-/* @media (max-width: 991px) {
-  .site-footer [class^="col-"] {
-    margin-bottom: 30px;
-  }
-}
-@media (max-width: 767px) {
-  .site-footer {
-    padding-bottom: 0;
-  }
-  .site-footer .copyright-text,
-  .site-footer .social-icons {
-    text-align: center;
-  }
-} */
+
 .social-icons {
 	padding-left: 0;
 	margin-bottom: 0;

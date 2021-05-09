@@ -22,9 +22,9 @@ body {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	padding: 1rem;
-	height: 22em;
-	width: 18em;
+	padding: 2rem;
+	height: 23em;
+	width: 19em;
 	box-shadow: 8px 8px 15px rgb(53, 53, 53);
 }
 
@@ -35,7 +35,6 @@ h2 {
 .form-row {
 	padding: 0.75em 2em 0.75em 2em;
 	display: flex;
-	/* justify-content: center; */
 	align-self: stretch;
 	align-items: center;
 	flex-wrap: wrap;
@@ -65,15 +64,24 @@ h2 {
 
 .form-row > button {
 	padding: 1em 1.25em;
-	background: rgb(118, 118, 118);
+	background-color: black;
 	color: white;
 	border: 0;
 	border-radius: 8px;
+	transition: all 0.3s ease;
+}
+
+.form-row > button:hover {
+	background-color: #2e8bc0;
+}
+
+.form-row p {
+	font-size: 15px;
 }
 
 .form-row a {
 	text-decoration: none;
-	color: white;
+	color: #145da0;
 }
 
 .form-row > button:hover {
