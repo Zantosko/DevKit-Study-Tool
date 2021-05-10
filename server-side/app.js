@@ -124,7 +124,7 @@ app.get("/note", checkAuthenticated,(req, res) => {
 	res.render("notes-page", { userid: req.user });
 });
 
-app.post("/note", async (req, res) => {
+app.post("/note", checkAuthenticated, async (req, res) => {
 	const { Title, Text, UserId } = req.body;
   const newNote = await Note.create({
     Title,
@@ -145,7 +145,7 @@ app.get("/view_notes", checkAuthenticated, async (req, res) => {
 	}
 });
 
-app.get("/read_note/:id", async (req,res) => {
+app.get("/read_note/:id", checkAuthenticated, async (req,res) => {
   const { id } = req.params;
   const data = await Note.findOne({
     where: {
@@ -157,7 +157,7 @@ app.get("/read_note/:id", async (req,res) => {
   res.render("read-note", { Notes: data });
 });
 
-app.get("/edit_note/:id", async (req,res) => {
+app.get("/edit_note/:id", checkAuthenticated, async (req,res) => {
   const { id } = req.params;
   const data = await Note.findOne({
     where: {
@@ -168,7 +168,7 @@ app.get("/edit_note/:id", async (req,res) => {
   res.render("edit-note", { Notes: data })
 })
 
-app.post("/edit_note/:id", async (req,res) => {
+app.post("/edit_note/:id", checkAuthenticated, async (req,res) => {
   const { id } = req.params;
 
   await Note.update(req.body, {
@@ -180,7 +180,7 @@ app.post("/edit_note/:id", async (req,res) => {
   res.redirect("/note")
 })
 
-app.post("/delete_note/:id", async (req,res) => {
+app.post("/delete_note/:id", checkAuthenticated, async (req,res) => {
   const { id } = req.params;
 
   await Note.destroy({
@@ -212,8 +212,6 @@ app.put("/card/:id", checkAuthenticated, async (req,res) => {
   res.json(data)
 })
 
-
-
 app.post("/card/:id", checkAuthenticated, async (req, res) => {
 	const { Question, Answer, NoteId } = req.body;
 	const newCard = await Card.create({
@@ -224,6 +222,40 @@ app.post("/card/:id", checkAuthenticated, async (req, res) => {
 
   res.redirect(`/card/${NoteId}`)
 });
+
+app.get("/card/:id/edit_cards", checkAuthenticated, async (req,res) => {
+  const { id } = req.params;
+
+  const data = await Card.findAll({ where: { NoteId: id } });
+
+  res.render("edit-cards", { 
+    NoteId: id,
+    Cards: data })
+})
+
+app.post("/card/:NoteId/edit_cards/:id", checkAuthenticated, async (req,res) => {
+  const { NoteId, id } = req.params;
+
+  await Card.update(req.body, {
+    where: {
+      id
+    }
+  });
+
+  res.redirect(`/card/${NoteId}`)
+})
+
+app.get("/card/:NoteId/edit_cards/delete_card/:id", checkAuthenticated,async (req,res) => {
+  const { NoteId, id } = req.params;
+
+  await Card.destroy({
+    where: {
+      id
+    }
+  })
+
+  res.redirect(`/card/${NoteId}`);
+})
 
 app.listen(PORT, () => {
 	console.log(`Server is running on port ${PORT}`);

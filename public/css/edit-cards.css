@@ -34,26 +34,25 @@ body {
 	color: white;
 	font-size: 3rem;
 	margin-top: 2rem;
-	margin-left: 2rem;
+	text-align: center;
 }
 
 .flashcard-container {
 	position: relative;
 	margin: auto;
-	width: 400px;
-	height: 200px;
+	width: 70vw;
+	height: 400px;
 	margin-top: 5rem;
 	border-radius: 10px;
 }
 
 .flashcard {
 	position: absolute;
+	transform-style: preserve-3d;
 	width: 100%;
 	height: 100%;
-	transform-style: preserve-3d;
-	transition: transform 1s ease;
 	border-radius: 10px;
-	display: none;
+	transition: all 1s ease;
 }
 
 .front-face {
@@ -79,107 +78,53 @@ body {
 
 .flashcard-content {
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	height: 100%;
+	width: 100%;
+	padding-top: 3rem;
 }
 
 .flashcard-content > p {
 	text-align: center;
 }
 
-.button-container {
-	margin-top: 4rem;
+.mod-button-container {
+	margin-top: 1rem;
 	display: flex;
 	justify-content: space-evenly;
+	width: 100%;
 	margin-right: 15px;
 	height: 2.5rem;
 }
 
-.flash-btn {
-	border: none;
-	border-radius: 4px;
-	background-color: black;
-	color: white;
+.mod-button {
 	text-decoration: none;
-	padding: 0.3rem 1rem;
+	border: none;
+	color: white;
+	background-color: black;
+	padding: 0.5rem 1rem;
+	border-radius: 10px;
 	transition: all 0.3s ease;
 }
 
-.flash-btn:hover {
+.mod-button:hover {
 	background-color: #2e8bc0;
 	color: black;
 }
 
-.shifter-link {
-	text-decoration: none;
-	color: white;
-	transition: all 0.3s ease;
-}
-
-.shifter-link:hover {
-	color: black;
-}
-
-.shifter > p {
-	margin-top: 10px;
-	color: white;
-}
-
-.input-container {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	margin-top: 4rem;
-	width: 100vw;
-}
-
-label {
-	color: white;
-	font-weight: bold;
-}
-
 input {
-	width: 80%;
-	border: solid 1px #bbb;
-	border-radius: 4px;
-	padding: 0.5rem;
-	margin-top: 1rem;
+	width: 85%;
+	height: 2.5rem;
+	margin: 0.5rem 0 1rem 0;
+	padding: 5px;
+	border-radius: 10px;
+	border: none;
 }
 
 input:focus {
 	outline: none;
-}
-
-.add-card {
-	margin-top: 2.5rem;
-	display: flex;
-	justify-content: center;
-}
-
-.add-card-btn {
-	border: none;
-	border-radius: 4px;
-	background-color: #b1d4e0;
-	color: black;
-	text-decoration: none;
-	padding: 0.3rem 1rem;
-	transition: all 0.3s ease;
-}
-
-.add-card-btn:hover {
-	background-color: black;
-	color: white;
-}
-
-.edit-cards-link {
-	text-decoration: none;
-	color: white;
-	transition: all 0.3s ease;
-}
-
-.edit-cards-link:hover {
-	color: black;
 }
 
 @media (max-width: 720px) {
