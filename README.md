@@ -51,3 +51,30 @@ The idea behind Devkit was to create a "Quizlet" like Web page target towards de
 - Bootstrap
 
 ## What was learned
+
+- Gained a better understanding of Node.js.
+
+  - Learned how to integrate the client and server sides together to create a fully functional full stack application.
+  - How to intercept data from the client-side and pass back a response depending on the request.
+
+- Gained a better understanding of Relatiional Databases.
+
+  - Learned how to create associations using foreign keys.
+  - Learned about different types of associations and knowing which one to use based on the situation.
+    - For example this project uses two One-To-Many realtionships. One user can have many notes and one note can have many flash cards.
+
+- Was able to get familiar with the Sequelize ORM (Object Relational Mapper).
+
+  - Understanding how this is a much more intuitive approach compared to writing raw SQL.
+  - Learned how to properly model, seed, and migrate data to desired tables.
+
+- Became more familiar with the Mustache Template Engine
+
+  - Learned how to dynamically interpolate data on a page by passing it the queried values from the database.
+    - This involves rendering mustache objects using server-side routes.
+  - Learned Template Engines eliminate the need for excess client-side JavaScript code.
+
+- Learned how to implement User Authentication using Passport.js and Bcrypt.
+  - Learned how to hash user passwords.
+  - Learned how take user input and compare it to existing usernames and hashed passwords in the database.
+  - Learned how to take successful input, serialize it and creating a session. Along with that understanding how to access stored information by deserializing it to use in server-side routes.
