@@ -24,3 +24,28 @@ The idea behind Devkit was to create a "Quizlet" like Web page target towards de
 <p align="center">
   <img src="./assets/screenshots/Edit-card-page.png" height="300" width="300">
 </p>
+
+## Key Features
+
+- **Register/Login System**
+
+- **Notes specific to individual user**
+
+- **Flash-Card set specific to individual note**
+
+- **CRUD Functionality**
+
+## Technologies Used
+
+**Built with**:
+
+- JavaScript
+- Node.js
+- Express.js
+- PostgreSQL
+- Sequelize ORM
+- Mustache Template Engine
+- CSS
+- Bootstrap
+
+## What was learned
