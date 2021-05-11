@@ -12,7 +12,6 @@ const flash = require("express-flash");
 const session = require("express-session");
 const { User, Note, Card } = require("./models");
 const mustacheExpress = require("mustache-express");
-const { response } = require("express");
 
 const PORT = 3033;
 const VIEWS_PATH = path.join(__dirname, "../views");
