@@ -99,6 +99,19 @@ body {
 	height: 2.5rem;
 }
 
+.mod-button-container2 {
+	margin-top: 1rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	margin-right: 15px;
+	height: 2.5rem;
+}
+
+.mod-button-container2 button {
+	margin-top: 1rem;
+}
+
 .mod-button {
 	text-decoration: none;
 	border: none;

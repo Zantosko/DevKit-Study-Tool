@@ -25,6 +25,11 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/note">Create Note</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/card/{{NoteId}}">Create Flash Cards</a>
+              </li>
+
             </ul>
           </div>
         </div>
@@ -61,11 +66,12 @@
                     <p><b>New Answer:</b></p>
                     <input type="text" value="{{Answer}}" class="edit-input" name="Answer"></input>
                     <input type="hidden" name="id" value="{{id}}">
-                    <div class="mod-button-container">
+                    <div class="mod-button-container2">
                       <button type="submit" class="mod-button"><a>Submit Changes</a></button>
-                  </form>
+                      <button class="mod-button exit-btn"><a>Exit</a></button>
+                    </div>
                   </div>
-                </div>
+                </form>
               </div>
             </div>
           </div>
